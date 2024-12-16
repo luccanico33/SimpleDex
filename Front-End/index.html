@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleDex</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center">SimpleDex</h1>
+    <div class="text-center mb-4">
+      <button id="walletButton" class="btn btn-primary">Connect Wallet</button>
+    </div>
+    <div id="walletInfo" class="d-none">
+      <p>Address: <span id="walletAddress"></span></p>
+      <p>Network: <span id="walletNetwork"></span></p>
+      <p>Balance: <span id="walletBalance"></span></p>
+    </div>
+    <div class="card-deck">
+      <!-- Swap Card -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Swap Tokens</h5>
+          <div class="form-group">
+            <label for="swapAmount">Amount</label>
+            <input type="number" class="form-control" id="swapAmount" placeholder="Enter amount">
+          </div>
+          <div class="form-group">
+            <label for="swapFromToken">From</label>
+            <select class="form-control" id="swapFromToken">
+              <option>Token A</option>
+              <option>Token B</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="swapToToken">To</label>
+            <select class="form-control" id="swapToToken">
+              <option>Token B</option>
+              <option>Token A</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="swapReceiveAmount">You Receive</label>
+            <input type="number" class="form-control" id="swapReceiveAmount" placeholder="Amount received" readonly>
+          </div>
+          <button id="approveSwapButton" class="btn btn-warning">Approve</button>
+          <button id="swapButton" class="btn btn-success d-none">Swap</button>
+          <div class="mt-3">
+            <p>Token A Price: <span id="tokenAPrice"></span></p>
+            <p>Token B Price: <span id="tokenBPrice"></span></p>
+          </div>
+        </div>
+      </div>
+      <!-- Add Liquidity Card -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Add Liquidity</h5>
+          <div class="form-group">
+            <label for="liquidityTokenA">Token A Amount</label>
+            <input type="number" class="form-control" id="liquidityTokenA" placeholder="Enter Token A amount">
+          </div>
+          <div class="form-group">
+            <label for="liquidityTokenB">Token B Amount</label>
+            <input type="number" class="form-control" id="liquidityTokenB" placeholder="Enter Token B amount">
+          </div>
+          <button id="approveLiquidityButton" class="btn btn-warning">Approve</button>
+          <button id="addLiquidityButton" class="btn btn-success d-none">Add Liquidity</button>
+        </div>
+      </div>
+      <!-- Mint Token Card -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Mint Token</h5>
+          <div class="form-group">
+            <label for="mintAmount">Amount</label>
+            <input type="number" class="form-control" id="mintAmount" placeholder="Enter amount">
+          </div>
+          <div class="form-group">
+            <label for="mintAddress">Address</label>
+            <input type="text" class="form-control" id="mintAddress" placeholder="Enter address">
+          </div>
+          <button id="approveMintButton" class="btn btn-warning">Approve</button>
+          <button id="mintButton" class="btn btn-success d-none">Mint</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>
